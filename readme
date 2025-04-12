@@ -1,3 +1,6 @@
+For my SBI I started with the idea that I would access a Game of Thrones API but I couldnt figure out how to get all the characters from the series. My goal was to allow the user to search a character from the franchise and it would tell you details about the character such as the house they belong to, their cultuer, age, gender, aliases, etc.
+I ended up scratching that idea and focusing on something much simpler like this joke generator. 
+
 I attached a joke api and a gif api for my SBA and made a Joke Generator
 The app allows you to click a button for more jokes and theres another button to save your favorite jokes
 I used Giphy for the gifs and the JokeAPI for the jokes
