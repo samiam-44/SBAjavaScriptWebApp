@@ -22,16 +22,31 @@ async function fetchJoke() {
   }
 }
 const getLaughingGif = async () => {
-    try {
-      const res = await fetch(`https://api.giphy.com/v1/gifs/categories?api_key=`);
-      const data = await res.json();
-      const gifUrl = data.data.images.original.url;
-  
+  try {
+    //Make request to GIphy API related to laughing 
+    const res = await fetch(`https://api.giphy.com/v1/gifs/search?q=laughing&limit=20&rating=g&api_key=hw2ANDXNHS2tVo1Mvjl15jEuVwFcuhiu`);
+    const data = await res.json();
+//Check for gifs
+    if (data.data.length > 0) {
+      //pick a random gif from list of 20
+      const randomIndex = Math.floor(Math.random() * data.data.length);
+      const gifUrl = data.data[randomIndex].images.original.url;
+      //set the src of the img elements to selected gif url
       gif.src = gifUrl;
-    } catch (error) {
-      gif.src = ''; // clear gif if it fails
+      gif.style.display = 'block';// Shows gif when button is clicked
+    } else {
+      //if no gifs are returned clear src and hide gif
+      gif.src = '';
+      console.warn('No gifs found!');
     }
-  };
+  } catch (error) {
+    //logs errors and hides the gif
+    console.error('Error fetching GIF:', error);
+    gif.src = '';
+  }
+};
+
+
 // Save the joke in local storage
 function saveJoke() {
     //get saved jokes from localStroage or start with an empty if no jokes yet
