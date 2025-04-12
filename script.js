@@ -34,3 +34,31 @@ const characterDetails = document.querySelector('.character-details');
 const backBtn = document.getElementById('back-btn');
 
 const apiUrl = "https://www.anapioficeandfire.com/api/characters";
+
+// fetch character data for suggestion list
+async function fetchCharacterData() {
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+
+        if (characterSuggestions) {
+            characterSuggestions.innerHTML = ''; // Clear previous suggestions
+            data.forEach(character => {
+                const option = document.createElement('option');
+                option.value = character.name;
+                characterSuggestions.appendChild(option);
+            });
+        } else {
+            console.error("characterSuggestions element not found");
+        }
+    } catch (error) {
+        console.error('Error fetching characters:', error);
+    }
+}
+// Call the function to fetch the character data on load
+fetchCharacterData();
+
+    
