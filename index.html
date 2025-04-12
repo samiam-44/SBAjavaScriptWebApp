@@ -12,7 +12,21 @@
     <header>
         <h1>Game of Thrones Character Search</h1>
     </header>
-    <div id="character-container"></div>
+    <div class="search-section">
+        <input type="text" id="search-bar" placeholder="Search character here" list="character-suggestions" />
+        <datalist id="character-suggestions"></datalist>
+    </div>
+    
+    <div class="character-list">
+        <ul id="characters"></ul>
+    </div>
+    
+    <div class="character-details" style="display:none;">
+        <h2 id="character-name"></h2>
+        <p id="character-house"></p>
+        <p id="character-title"></p>
+        <button id="back-btn">Back to List</button>
+    </div>
     
 </body>
 </html>
