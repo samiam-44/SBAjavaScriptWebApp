@@ -3,7 +3,7 @@ const jokeContainer = document.getElementById('joke-container');
 const newJokeButton = document.getElementById('new-joke');
 const saveJokeButton = document.getElementById('save-joke');
 const favoritesContainer = document.getElementById('favorites');
-
+const gif = document.getElementById('laughing-gif');
 let currentJoke = '';
 //Get joke from API
 async function fetchJoke() {
@@ -15,11 +15,23 @@ async function fetchJoke() {
     jokeContainer.textContent = currentJoke;
     //show save button after getting joke
     saveJokeButton.style.display = 'inline-block';
+    getLaughingGif();
   } catch (err) {
     //If brakes tells user
     jokeContainer.textContent = 'OOPS! Jokes on you. It didnt work';
   }
 }
+const getLaughingGif = async () => {
+    try {
+      const res = await fetch(`https://api.giphy.com/v1/gifs/categories?api_key=`);
+      const data = await res.json();
+      const gifUrl = data.data.images.original.url;
+  
+      gif.src = gifUrl;
+    } catch (error) {
+      gif.src = ''; // clear gif if it fails
+    }
+  };
 // Save the joke in local storage
 function saveJoke() {
     //get saved jokes from localStroage or start with an empty if no jokes yet
@@ -48,3 +60,4 @@ function saveJoke() {
   
   // Show saved jokes when the page loads
   showFavorites();
+ 
