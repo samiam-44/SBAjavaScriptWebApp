@@ -18,3 +18,13 @@ async function fetchJoke() {
   }
 }
 
+function saveJoke() {
+    const savedJokes = JSON.parse(localStorage.getItem('jokes')) || [];
+    if (!savedJokes.includes(currentJoke)) {
+      savedJokes.push(currentJoke);
+      localStorage.setItem('jokes', JSON.stringify(savedJokes));
+      showFavorites();
+    }
+  }
+  
+  
