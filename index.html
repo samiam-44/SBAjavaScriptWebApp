@@ -1,32 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game of Thrones Character Search</title>
-    <script defer src="./script.js"></script>
-    <link rel="stylesheet" href="./styles.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Random Joke Generator</title>
 </head>
 <body>
-    <header>
-        <h1>Game of Thrones Character Search</h1>
-    </header>
-    <div class="search-section">
-        <input type="text" id="search-bar" placeholder="Search character here" list="character-suggestions" />
-        <datalist id="character-suggestions"></datalist>
-    </div>
-    
-    <div class="character-list">
-        <ul id="characters"></ul>
-    </div>
-    
-    <div class="character-details" style="display:none;">
-        <h2 id="character-name"></h2>
-        <p id="character-house"></p>
-        <p id="character-title"></p>
-        <button id="back-btn">Back to List</button>
-    </div>
-    
+
+  <h1>Random Joke Generator</h1>
+
+  <button id="new-joke">Show me a Joke!!</button>
+  <button id="save-joke" style="display: none;">Save Joke</button>
+
+  <div id="joke-container">
+    Click the button to get a joke.
+  </div>
+
+  <h2>Your Favorite Jokes</h2>
+  <div id="favorites"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
